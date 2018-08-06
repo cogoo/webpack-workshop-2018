@@ -5,12 +5,10 @@ module.exports = () => ({
     filename: "bundle.js"
   },
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
-      }
-    ]
+    rules: [{
+      test: /\.css$/,
+      use: [MiniCssExtractPlugin.loader, "css-loader"]
+    }]
   },
   plugins: [new MiniCssExtractPlugin()]
 });
