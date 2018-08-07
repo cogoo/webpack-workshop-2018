@@ -7,6 +7,7 @@ const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 const presetConfig = require("./build-utils/loadPresets");
 
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
+  debugger;
   return webpackMerge(
     {
       mode,
@@ -29,7 +30,11 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
         filename: "bundle.js",
         chunkFilename: "[name].lazy-chunk.js"
       },
-      plugins: [new MyFirstWebpackPlugin(),new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+      plugins: [
+        new MyFirstWebpackPlugin(),
+        new HtmlWebpackPlugin(),
+        new webpack.ProgressPlugin()
+      ]
     },
     modeConfig(mode),
     presetConfig({ mode, presets })
